@@ -1,10 +1,10 @@
 BINARY=build
 
 build:
-	go build -o bin/engine main.go
+	GO111MODULE=off go build -o bin/engine main.go
 
 run:
-	 go run main.go
+	 GO111MODULE=off go run main.go
 
 docker:
 	docker build -t ghcr.io/thatchailert/poc-go-pipeline . --no-cache

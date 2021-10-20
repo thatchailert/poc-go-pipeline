@@ -22,10 +22,14 @@ jobs:
       - uses: actions/setup-go@v2
         with:
           go-version: '1.17'
+      - name: cd calculator
+        run: cd calculator
       - name: Run coverage
         run: go test -race -coverprofile=coverage.out -covermode=atomic
       - name: Upload coverage to Codecov
         run: bash <(curl -s https://codecov.io/bash)
+      - name: cd ..
+        run: cd ..
       - name: Log in to the Container registry
         uses: docker/login-action@v1
         with:
